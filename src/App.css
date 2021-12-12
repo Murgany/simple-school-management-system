@@ -1,0 +1,185 @@
+.App {
+  font: Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.center-text {
+  text-align: center;
+  color: rgb(207, 204, 204);
+}
+
+.main-text-color {
+  color: rgb(226, 224, 224);
+}
+
+#buttons:hover {
+  background-color: #61dafb;
+}
+
+.blu-bg {
+  background-color: #61dafb;
+}
+
+.custom-view {
+  width: 70%;
+}
+
+@media screen and (max-width: 768px){
+  .custom-view {
+    width: 97%;
+  }
+}
+
+#navSwitch {
+  color: #61dafb;
+  text-align: center;
+  text-decoration: none;
+}
+
+#navSwitch:hover {
+  color: #333;
+  background-color: #61dafb;
+  border-radius: 3px;
+  border-color: #333;
+}
+
+#navSwitch:focus {
+  color: #333;
+  background-color: #61dafb;
+  border-radius: 3px;
+  border-color: #333;
+}
+
+#dark-hover {
+  color: #333
+}
+
+#dark-hover:hover {
+  color: #61dafb;
+  background-color: #222;
+  border-radius: 3px;
+}
+
+th {
+  font-weight: 500;
+}
+
+.image{
+  width: 50%;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 600px) {
+  .App,
+  .main {
+    font-size: 12px;
+  }
+}
+
+.form-container {
+  padding: 0.08%;
+  color: rgb(207, 204, 204);
+  width: 45%;
+  border-radius: 7px;
+}
+
+.login-form, .form {
+  width: 50%;
+  padding-bottom: 2%;
+}
+
+@media screen and (max-width: 500px) {
+  .loginform,
+  .form, 
+  .form-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .icons {
+    height: 16px;
+    width: 13px;
+  }
+}
+
+.search-box {
+  border: 1px solid rgb(17, 17, 17);
+}
+
+@media screen and (max-width: 375px) {
+  .App,
+  .main {
+    font-size: 11px;
+    font-weight: 300
+  }
+}
+
+@media screen and (min-width: 376px) {
+  .App,
+  .main {
+    font-size: 13px;
+    font-weight: 400
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .App,
+  .main {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .App,
+  .main {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .App,
+  .main {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .App, .main {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .App, .main {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .headers {
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+@media screen and (min-width: 376px) {
+  .headers {
+    font-size: 15px;
+    font-weight: 500;
+  }
+}
+@media screen and (min-width: 768px) {
+  .headers {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-link:hover {
+  color: #61dafb;
+}
