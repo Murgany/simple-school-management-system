@@ -95,7 +95,7 @@ const localResources = {
     staff_username: "Username : Staff (with uppercase S)",
     staff_pw: "Password : staff",
     permissions: "Permissions : Can add new students. Can view student details. Can view class details.",
-    admin_usernme: "Username : Symon (all uppercase letters)",
+    admin_username: "Username : Symon (with uppercase S)",
     admin_pw: "Password : admin",
     admin_perms: "Permissions : Can add, view, update, and delete student details. Can view class details. Can add new classes only through django admin dashboard. Can add or delete users. Can create new user-groups. And many more admin tasks.",
     none_Staff_perms: " Can create account but can not have login access until s/he is assigned a usergroup like staffs or admins and user permission/s by an admin.",
@@ -114,10 +114,10 @@ const localResources = {
     student_id: "STUDENT ID",
     to_admin_dashboard: "Do you need to add more classes?",
     admin_dashboard: "to the site admin dashboard",
-    admin_dashboard_nav: "Admin dashboard",
+    admin_dashboard_nav: "Dashboard",
     detailed_student_info: "Detailed student info",
     attendance_explanation: "The student identification number corresponds to the student name in the database. when setting a student attendance you only enter two informations, name and status (present/absent), the system automatically sets the date and the id for the selected student and displays them on the screen. The leters P and A on the table stands for Present and Absent respectively",
-
+    add_in_dashboard: "Add through dashboard",
    }},
    
 ar: { translation: { 
@@ -188,7 +188,7 @@ ar: { translation: {
     delete_parmanently: "الحذف بشكل نهائي؟",
     view_student: "عرض المزيد",
     delete_student: "مسح",
-    edit_student: "تعديل بيانات",
+    edit_student: "تحديث البيانات",
     science: "علوم",
     art: "اداب",
     hello_and_welcome: "مرحبا",
@@ -204,7 +204,7 @@ ar: { translation: {
     staff_username: "اسم المستخدم : Staff (بحرف S كبير)",
     staff_pw: "كلمه السر : staff",
     permissions: "الأذونات : يمكن إضافة طلاب جدد. يمكن عرض تفاصيل الطالب . يمكن عرض تفاصيل الفصل.",
-    admin_username: " اسم المستخدم : Symon (جميع الأحرف كبيرة)",
+    admin_username: " اسم المستخدم : Symon (بحرف S كبير)",
     admin_pw: "كلمة السر : admin",
     admin_perms: "الأذونات : يمكن إضافة وعرض وتحديث وحذف تفاصيل الطالب . يمكن عرض تفاصيل الفصل. يمكن إضافة فصول جديدة فقط من خلال لوحة تحكم جانقو. يمكن إضافة أو حذف المستخدمين. يمكن إنشاء مجموعات مستخدمين جديدة. والعديد من المهام الإدارية.",
     none_Staff_perms: "يمكن إنشاء حساب ولكن لا يمكن تسجيل الدخول حتى يتم تعيين مجموعة مستخدمين له/لها مثل الموظفين أو المديرين وأذونات المستخدم بواسطة مدير او من لديه هذه صلاحيات.",
@@ -218,6 +218,7 @@ ar: { translation: {
     admin_dashboard_nav: "لوحة التحكم",
     detailed_student_info: "معلومات مفصلة عن الطالب",
     attendance_explanation: "رقم تعريف الطالب يتوافق مع اسم الطالب في قاعدة البيانات. عند تعيين حضور الطالب ، تقوم فقط بإدخال معلومتين ، الاسم والحالة (حاضر / غائب) ، يقوم النظام تلقائيًا بتعيين التاريخ والمعرف للطالب المحدد ويعرضه على الشاشة. يرمز الحرفان P و A الموجودان على الجدول إلى الحاضر والغائب على التوالي",
+    add_in_dashboard: "للتسجيل خلال لوحة التحكم اضغط هنا"
   } } 
 }
 

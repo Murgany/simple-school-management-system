@@ -36,6 +36,11 @@ const Navigation = () => {
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("user");
         sessionStorage.removeItem("staffStatus");
+        localStorage.removeItem("adminStatus");
+        localStorage.removeItem("staffStatus");
+        localStorage.removeItem("admins");
+        localStorage.removeItem("staffs");
+
         window.location.reload(false);
         console.log("LOGGED OUT !!!");
       }
@@ -138,7 +143,7 @@ const Navigation = () => {
                       </NavDropdown.Item>
 
                       <NavDropdown.Item
-                        href={"http://127.0.0.1:8000/admin"}
+                        href={"http://simple-school-system.herokuapp.com/admin"}
                         id="navSwitch"
                         target="blank_"
                       >

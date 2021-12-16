@@ -11,10 +11,10 @@ import "./i18n"
 //axios.defaults.baseURL = "http://127.0.0.1:8000/api/";
 
 //below part is for production
-const API_MEDIA_URL = "https://simple-school-system.herokuapp.com";
+//const API_MEDIA_URL = "https://simple-school-system.herokuapp.com/";
 axios.defaults.baseURL = "https://simple-school-system.herokuapp.com/api/"
 
-export default API_MEDIA_URL;
+//export default API_MEDIA_URL;
 
 ReactDOM.render(
   <React.StrictMode>

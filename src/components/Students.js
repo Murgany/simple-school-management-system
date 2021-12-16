@@ -14,16 +14,46 @@ import { useTranslation } from "react-i18next";
 import DeleteButton from "./DeleteButton";
 import ViewButton from "./ViewButton";
 import EditButton from "./EditButton";
+//import axios from "axios";
 
 const StudentList = () => {
   const [student_info, setStudent_info] = useState([]);
   const [searchValue, setNewValue] = useState("");
-  const staffStatus = sessionStorage.getItem("staffStatus");
   const { t } = useTranslation();
+
+
+  /*
+  const config = {
+    headers: {
+      Authorization: "Token " + sessionStorage.getItem("token"),
+    },
+  };
+  
+  const userInfo = async () => {
+    try {
+      await axios.get("user_group", config).then((response) => {
+        //console.log(response.data);
+        // get all class info & filter out duplicates
+        const groups = response.data
+          .map((Item) => Item.name)
+          .filter(
+            (groupType, index, array) => array.indexOf(groupType) === index
+          );
+        console.log("grouppp", groups);
+
+        //localStorage.setItem("admins", groups[0]);
+        sessionStorage.setItem("staffs", groups);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+ */
+
+  const staffStatus = sessionStorage.getItem("staffStatus");
 
   useEffect(() => {
     getAllStudents();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAllStudents = async () => {
@@ -53,11 +83,11 @@ const StudentList = () => {
     return student_info.name.toLowerCase().includes(searchValue.toLowerCase());
   });
 
-  //clear input 
+  //clear input
   const clearInput = () => {
     setNewValue("");
   };
-  
+
   const displayClearBtn = searchValue.length > 0 && searchValue !== "Search";
 
   //used to keep user logged in for a given time already set up in the backend
@@ -88,10 +118,16 @@ const StudentList = () => {
               />
             </Col>
 
-            <Col className="text-dark col-4">
-              <h5 className="text-dark center-text">
-                <strong className="headers">{t("student_list")}</strong>
-              </h5>
+            <Col className="col-4">
+              <Button
+                href={"https://simple-school-system.herokuapp.com/admin"}
+                target="blank_"
+                variant="dark"
+                style={{ width: "100%" }}
+                className="btn-sm main-text-color main"
+              >
+                {t("admin_dashboard_nav")}
+              </Button>
             </Col>
 
             <Col className="col-4">
@@ -106,8 +142,24 @@ const StudentList = () => {
             </Col>
           </Row>
 
+          <Row
+            className="m-0 main-text-color bg-dark"
+            style={{ border: "1px solid #333" }}
+          >
+            <h3 className="center-text App-link">
+              <strong className="headers">{t("student_list")}</strong>
+            </h3>
+          </Row>
+
           <Row className="justify-content-center">
-            <Table responsive bordered hover variant="dark" size="sm" className=" bg-light p-0 m-0">
+            <Table
+              responsive
+              bordered
+              hover
+              variant="dark"
+              size="sm"
+              className=" bg-light p-0 m-0"
+            >
               <thead className="center-text">
                 <tr>
                   <th>{t("id")}</th>
@@ -133,44 +185,11 @@ const StudentList = () => {
                         <td>{student_info.section}</td>
                         <td>{student_info.shift_name}</td>
                         <td>
-                          {(() => {
-                            if (staffStatus === "STAFFS") {
-                              return (
-                                <Row className="justify-content-center">
-                                  <Col className="col-4 m-0 p-0">
-                                    {["bottom"].map((placement) => (
-                                      <OverlayTrigger
-                                        key={placement}
-                                        placement={placement}
-                                        overlay={
-                                          <Tooltip id="tooltip-disabled">
-                                            {t("view_student")}
-                                          </Tooltip>
-                                        }
-                                      >
-                                        <span className="d-inline-block">
-                                          <Button
-                                            as={Link}
-                                            to={
-                                              "studentdetails/" +
-                                              student_info.id
-                                            }
-                                            className="btn-sm m-aut"
-                                            variant="none"
-                                          >
-                                            <ViewButton />
-                                          </Button>
-                                        </span>
-                                      </OverlayTrigger>
-                                    ))}
-                                  </Col>
-                                </Row>
-                              );
-                            }
+                          {staffStatus === "ADMINS" && (
+                            <>
+                              <Row className="p- justify-content-center">
 
-                            return (
-                              <Row className="m-0">
-                                <div className="col-4 justify-content-center center-text m-0 p-0">
+                                <div className="col-sm-3 justify-content-center center-text m-0 p-0">
                                   {["bottom"].map((placement) => (
                                     <OverlayTrigger
                                       key={placement}
@@ -197,7 +216,7 @@ const StudentList = () => {
                                   ))}
                                 </div>
 
-                                <div className="col-4 justify-content-center center-text m-0 p-0">
+                                <div className="col-sm-3 justify-content-center center-text m-0 p-0">
                                   {["bottom"].map((placement) => (
                                     <OverlayTrigger
                                       key={placement}
@@ -225,7 +244,7 @@ const StudentList = () => {
                                   ))}
                                 </div>
 
-                                <div className="col-4 justify-content-center center-text m-0 p-0">
+                                <div className="col-sm-3 justify-content-center center-text m-0 p-0">
                                   {["bottom"].map((placement) => (
                                     <OverlayTrigger
                                       key={placement}
@@ -251,8 +270,40 @@ const StudentList = () => {
                                   ))}
                                 </div>
                               </Row>
-                            );
-                          })()}
+                            </>
+                          )}
+
+                          {staffStatus === "STAFFS" && (
+                            <>
+                              <Row className="justify-content-center">
+                                <Col className="col-4 m-0 p-0">
+                                  {["bottom"].map((placement) => (
+                                    <OverlayTrigger
+                                      key={placement}
+                                      placement={placement}
+                                      overlay={
+                                        <Tooltip id="tooltip-disabled">
+                                          {t("view_student")}
+                                        </Tooltip>
+                                      }
+                                    >
+                                      <span className="d-inline-block">
+                                        <Button
+                                          as={Link}
+                                          to={
+                                            "studentdetails/" + student_info.id
+                                          }
+                                          className="btn-sm m-aut"
+                                          variant="none"
+                                        >
+                                          <ViewButton />
+                                        </Button>
+                                      </span>
+                                    </OverlayTrigger>
+                                  ))}
+                                </Col>
+                              </Row>
+                            </>)}
                         </td>
                       </tr>
                     );
@@ -267,24 +318,21 @@ const StudentList = () => {
           style={{ height: "100%" }}
           fluid
         >
-          <Row className="text-dark center-text mt-5">
-            <h5 className="p-1  text-dark center-text headers">
+          <Row className="text-dark center-text m-4">
+            <h5 className="text-dark center-text headers">
               {t("student_list_restricted")} <br /> {t("please")}
-              <Link
-                to="/LoginForm"
-                id="navSwitch"
-                className="text-dark"
-              >
+              <Link to="/LoginForm" className="text-dark">
                 <strong id="dark-hover"> {t("login")} </strong>
               </Link>
               <>{t("or")}</>
-              <Link to="/SignupForm" id="navSwitch" className="text-dark">
+              <Link to="/SignupForm" className="text-dark">
                 <strong id="dark-hover"> {t("signup")} </strong>
               </Link>
             </h5>
           </Row>
         </Container>
       )}
+      
     </Container>
   );
 };

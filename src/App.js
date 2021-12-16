@@ -5,7 +5,7 @@ import { Container, Row } from "react-bootstrap";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ScrollToTop from "./components/Scroller";
-import axios from 'axios';
+import axios from "axios";
 
 
 axios.defaults.xsrfCookieName = 'csrftoken'
@@ -16,6 +16,7 @@ const App = () => {
   const loggedInSession = sessionStorage.getItem("token");
 
   useEffect(() => {
+    //userInfo()
     document.dir = i18n.dir();
   }, [i18n, i18n.language]);
 
@@ -92,7 +93,7 @@ const App = () => {
                     </strong>
                   </h5>
 
-                  <div className="col-sm-4" style={{ border: "1px solid grey" }}
+                  <div className="col-sm-4 rounded" style={{ border: "1px solid grey" }}
                   >
                     <p>
                       <strong id="navSwitch">{t("admin_users")}</strong> <br />
@@ -106,7 +107,7 @@ const App = () => {
                   </div>
 
                   <div
-                    className="col-sm-4"
+                    className="col-sm-4 rounded"
                     style={{ border: "1px solid grey" }}
                   >
                     <p>
@@ -121,7 +122,7 @@ const App = () => {
                   </div>
 
                   <div
-                    className="col-sm-4"
+                    className="col-sm-4 rounded"
                     style={{ border: "1px solid grey" }}
                   >
                     <p>
@@ -131,9 +132,6 @@ const App = () => {
                       {t("none_Staff_perms")}
                     </p>
                   </div>
-                <div>
-                  <p><small>{t("page_disappear")}</small> </p>
-                </div>
                 </Row>
                 <br />
 
@@ -232,6 +230,9 @@ const App = () => {
               <br />
 
               <footer className="center-text">
+              <div>
+                  <><small>{t("page_disappear")}</small> </>
+                </div>
                 <hr />
                 <small>Copy right 2022 Virtua</small>
               </footer>

@@ -14,11 +14,7 @@ from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
 from knox.models import AuthToken
-
 from rest_framework import viewsets
-from django.views import View
-from django.http import HttpResponse, HttpResponseNotFound
-import os
 
 class StudentInfoViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
@@ -143,25 +139,6 @@ class AttendanceViewSet(viewsets.ViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 
-class UserAPIView(generics.RetrieveAPIView):
-    permission_classes = [IsAuthenticated,]
-    serializer_class = UserSerializer
-    
-    def get_post_response_data(self, request):
-        serializer =  self.get_user_serializer_class()
-        staff_perms = self.request.user.get_user_permissions()
-        userGroup = Group.objects.get(user=request.user).name
-        data = {
-            'username': request.user.username,
-            'staff_perms': staff_perms,
-            "userGroup": userGroup
-        }
-        return data
-
-    def get_object(self):
-        return self.request.user
-
-
 class RegisterAPI(generics.GenericAPIView):
     serializer_class = RegisterSerializer
 
@@ -187,25 +164,18 @@ class LoginView(KnoxLoginView):
 
     def get_post_response_data(self, request, token, instance):
         serializer =  self.get_user_serializer_class()
-        staff_perms = self.request.user.get_user_permissions()
-        #userGroup = Group.objects.get(user=request.user).name
+        #staff_perms = self.request.user.get_user_permissions()
+        userGroup = Group.objects.get(user=request.user).name
         data = {
-            'expiry': self.format_expiry_datetime(instance.expiry),
-            'token': token,
             'username': request.user.username,
-            'staff_perms': staff_perms,
-            #"userGroup": userGroup,
+            'token': token,
+            'expiry': self.format_expiry_datetime(instance.expiry),
+            #'staff_perms': staff_perms,
+            "userGroup": userGroup,
             #"email": email,
         }
         return data
     
-    def userGroup(self, request):
-        if Group.objects.get(user=request.user).name:
-            return Group.objects.get(user=request.user).name
-        else:
-            pass
-
-
 # Add this CBV to help fix mime type issues on heroku
 """class Assets(View):
 
@@ -217,4 +187,3 @@ class LoginView(KnoxLoginView):
                 return HttpResponse(file.read(), content_type='application/javascript')
         else:
             return HttpResponseNotFound()"""
-

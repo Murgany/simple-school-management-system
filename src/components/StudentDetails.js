@@ -51,17 +51,21 @@ const SingleStudent = (props) => {
 
   return (
     <Container className="blu-bg main" fluid>
-      <Row className="mb-3 mt-3 justify-content-between">
-        <Col className="center-text col-sm-">
+      <Row className="mb-3 col- mt-3 justify-content-between">
+        <Col className="center-text btn-s col-4">
           <HomeButton />
         </Col>
 
-        <Col className="text-dar  col-4">
-          <h5 className="text-dar center-text bg-dark btn-sm">
-            <strong className="headers main-text-color">
-              {t("student_details")}
-            </strong>
-          </h5>
+        <Col className="col-4">
+          <Button
+            href={"https://simple-school-system.herokuapp.com/admin"}
+            target="blank_"
+            variant="dark"
+            style={{ width: "100%" }}
+            className="btn-sm main-text-color main"
+          >
+            {t("admin_dashboard_nav")}
+          </Button>
         </Col>
       </Row>
 
@@ -75,8 +79,7 @@ const SingleStudent = (props) => {
           >
             <h5 className="center-text headers m-2 App-link">
               <strong className="headers">{t("detailed_student_info")}</strong>
-            </h5> 
-           
+            </h5>
           </Row>
           <Row className="justify-content-center ml-1 center-text">
             <Table
@@ -139,7 +142,7 @@ const SingleStudent = (props) => {
                                   as={Link}
                                   to={"/editstudent/" + single_student.id}
                                   className="btn-sm"
-                                  variant="none" 
+                                  variant="none"
                                 >
                                   <EditButton />
                                 </Button>

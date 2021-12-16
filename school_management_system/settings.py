@@ -66,7 +66,7 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 CORS_ALLOWED_ORIGINS = [
-    #"http://localhost:3000",
+    "http://localhost:3000",
     "https://simple-school-system.herokuapp.com"
  ]
 

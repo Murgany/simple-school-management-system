@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import StudentInfo, StudentClassInfo, Attendance
 from django.contrib.auth.models import User
 from django import forms
+from django.contrib.auth.models import Group
 
 
 class StudentInfoSerializer(serializers.ModelSerializer):
@@ -30,13 +31,13 @@ class AttendanceSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email')
+        fields = [']id', 'username', 'email']
 
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password')
+        fields = ['id', 'username', 'email', 'password']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -46,3 +47,8 @@ class RegisterSerializer(serializers.ModelSerializer):
             validated_data['password']
         )
         return user
+
+class GroupSerializer(serializers.ModelSerializer):    
+    class Meta:
+        model = Group
+        fields = ["name"]

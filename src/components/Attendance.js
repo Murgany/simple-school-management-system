@@ -61,7 +61,6 @@ const Attendance = () => {
           <Row
             className="m-0 main-text-color bg-dark"
             style={{ border: "1px solid #333" }}
-            variant="info"
           >
             <h5 className="center-text headers m-2 App-link">
               <strong className="headers">{t("attendance")}</strong>
@@ -106,8 +105,8 @@ const Attendance = () => {
       ) : (
         <>
           <Container style={{ height: "100%" }} fluid>
-            <Row className="blu-bg mt-5">
-              <h3 className="p-1 text-dark center-text headers">
+            <Row className="blu-bg m-4">
+              <h3 className="text-dark center-text headers">
                 {t("restricted")} <br /> {t("please")}
                 <Link to="/LoginForm" className="text-dark">
                   <strong id="dark-hover"> {t("login")} </strong>

@@ -11,15 +11,16 @@ router = DefaultRouter(trailing_slash=False)
 router.register('student_info/?', StudentInfoViewSet, basename='student_info'),
 router.register('class_info', StudentClassInfoViewSet, basename='class_info'),
 router.register('attendance', AttendanceViewSet, basename='attendance'),
+#router.register('user_group', GroupViewSet, basename='user_group'),
 
 urlpatterns = [
     path('api/', include(router.urls)),
     path('api/register', RegisterAPI.as_view(), name='register'),
    # path('api/logoutall', knox_views.LogoutAllView.as_view(), name='logoutall'),
-    path('api/user', UserAPIView.as_view()),
     path('api/login', LoginView.as_view()),
     path('api/logout', LogoutView.as_view(), name='knox_logout'),
-    re_path('.*', TemplateView.as_view(template_name="index.html"), name="index")
+    re_path('.*', TemplateView.as_view(template_name="index.html"), name="index"),
+    
 ]
 
 if settings.DEBUG:

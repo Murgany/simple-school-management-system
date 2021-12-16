@@ -102,20 +102,22 @@ const ClassInfo = () => {
           </Row>
         </>
       ) : (
-        <Container style={{ height: "100%" }} fluid>
-          <Row className="blu-bg">
-            <h5 className="p-1 text-dark headers center-text mt-5">
+     <>   
+     <Container style={{ height: "100%" }} fluid>
+          <Row className="blu-bg m-4">
+            <h5 className="p-1 text-dark headers center-text">
               {t("restricted")} <br /> {t("please")}
-              <Link to="/LoginForm" id="dark-hover" className="text-dark">
+              <Link to="/LoginForm"className="text-dark">
                 <strong id="dark-hover"> {t("login")} </strong>
               </Link>
               <>{t("or")}</>
-              <Link to="/SignupForm" id="dark-hover" className="text-dark">
-                <strong id="dark-hover"> {t("signup")} </strong>
+              <Link to="/SignupForm" className="text-dark">
+                <strong id="dark-hover">{t("signup")} </strong>
               </Link>
             </h5>
           </Row>
         </Container>
+</>
       )}
     </Container>
   );

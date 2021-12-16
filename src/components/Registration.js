@@ -3,7 +3,6 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { useHistory, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import HomeButton from "./HomeButton";
 
 const Registration = () => {
   const [formValue, setformValue] = React.useState({
@@ -86,7 +85,7 @@ const Registration = () => {
 
   return (
     <Container
-      className="blu-bg"
+      className="blu-bg justify-content-center"
       fluid
       style={{
         backgroundImage: "url(/Bluea.png)",
@@ -97,13 +96,23 @@ const Registration = () => {
       {/**show form only for logged in users */}
       {loggedInSession ? (
         <>
-          <Row className="justify-content-center mt-3 mb-2 main ">
-            <div className="center-text col-3">
-              <HomeButton />
-            </div>
-          </Row>
+          <Row className="mb-3 m- p- mt-3 justify-content-center center-text">
+           
 
-          <Row className="justify-content-center p-1">
+            <div className="col-sm-6">
+              <Button
+                href={"https://simple-school-system.herokuapp.com/adminstudents/studentinfo/add/"}
+                target="blank_"
+                variant="dark"
+                style={{ width: "100%" }}
+                className="btn-sm main-text-color main"
+              >
+               {t("add_in_dashboard")}
+              </Button>
+            </div>
+          </Row>   
+
+          <Row className="justify-content-center m-1"> 
             <Form
               className="form bg-light p-2 m-2 rounded"
               onSubmit={handleCreateStudent}
@@ -315,7 +324,7 @@ const Registration = () => {
         </>
       ) : (
         <Container style={{ height: "100" }} fluid>
-          <Row className="blu-bg mt-5">
+          <Row className="blu-bg m-4">
             <h3 className="p-1 text-dark center-text headers">
               {t("restricted")} <br /> {t("please")}
               <Link to="/LoginForm" className="text-dark">

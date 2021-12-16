@@ -25,7 +25,7 @@ const LoginForm = () => {
     history.push("/");
   };
 
-  const handleSubmit = async (e, props) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const loginFormData = new FormData();
     loginFormData.append("username", formValue.username);
