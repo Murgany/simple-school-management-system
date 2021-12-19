@@ -8,7 +8,7 @@ import ClassInfo from "./ClassInfo";
 import Attendance from "./Attendance";
 import SingleStudent from "./StudentDetails";
 import { Nav, Navbar, NavDropdown, Container } from "react-bootstrap";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, useHistory } from "react-router-dom";
 import StudentList from "./Students";
 import { useTranslation } from "react-i18next";
 
@@ -22,6 +22,7 @@ const Navigation = () => {
   const loggedInUser = sessionStorage.getItem("user");
 
   const { t, i18n } = useTranslation();
+  const history = useHistory();
 
   let config = {
     headers: {
@@ -36,13 +37,8 @@ const Navigation = () => {
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("user");
         sessionStorage.removeItem("staffStatus");
-        localStorage.removeItem("adminStatus");
-        localStorage.removeItem("staffStatus");
-        localStorage.removeItem("admins");
-        localStorage.removeItem("staffs");
-
-        window.location.reload(false);
         console.log("LOGGED OUT !!!");
+        history.push("/")
       }
     } catch (error) {
       console.log(error);
