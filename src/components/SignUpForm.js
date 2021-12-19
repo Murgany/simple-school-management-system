@@ -55,9 +55,6 @@ const SignUpForm = () => {
       fluid
       style={{
         height: "100vh",
-        backgroundImage: "url(/media/Bluea.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
         width: "100%"}}
     >
       <Row className="justify-content-center mt-5">

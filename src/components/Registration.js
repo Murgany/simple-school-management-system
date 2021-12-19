@@ -87,11 +87,6 @@ const Registration = () => {
     <Container
       className="blu-bg justify-content-center"
       fluid
-      style={{
-        backgroundImage: "url(/Bluea.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
     >
       {/**show form only for logged in users */}
       {loggedInSession ? (

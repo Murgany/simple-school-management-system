@@ -56,9 +56,6 @@ const LoginForm = () => {
       fluid
       style={{
         height: "100vh",
-        backgroundImage: "url(/media/Bluea.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
         width: "100vw"
       }}
     >
