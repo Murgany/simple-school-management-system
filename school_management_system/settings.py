@@ -29,6 +29,8 @@ TEST_RUNNER = 'django_heroku.HerokuDiscoverRunner'
 
 ALLOWED_HOSTS = ['1.2.7.0.0.1','simple-school-system.herokuapp.com']
 
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
