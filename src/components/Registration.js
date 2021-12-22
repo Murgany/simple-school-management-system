@@ -88,7 +88,7 @@ const Registration = () => {
       className="blu-bg justify-content-center"
       fluid
     >
-      {/**show form only for logged in users */}
+      {/* show form only for logged in users */}
       {loggedInSession ? (
         <>
           <Row className="mb-3 m- p- mt-3 justify-content-center center-text">

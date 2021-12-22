@@ -38,7 +38,8 @@ const Navigation = () => {
         sessionStorage.removeItem("user");
         sessionStorage.removeItem("staffStatus");
         console.log("LOGGED OUT !!!");
-        history.push("/")
+        history.push("/");
+        window.location.reload(false);
       }
     } catch (error) {
       console.log(error);
@@ -49,7 +50,7 @@ const Navigation = () => {
     <Router>
       <Container className="m-0 p-0" fluid>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Container fluid>
+          <Container fluid className="">
             <Navbar.Brand className="main" href="/Students">
               {t("student_management_system")}
             </Navbar.Brand>

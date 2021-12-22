@@ -7,9 +7,8 @@ import { useTranslation } from "react-i18next";
 import ScrollToTop from "./components/Scroller";
 import axios from "axios";
 
-
-axios.defaults.xsrfCookieName = 'csrftoken'
-axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -31,15 +30,15 @@ const App = () => {
           {!loggedInSession ? (
             <Container className="bg-dark">
               <Row className="main-text-color justify-content-center">
-               
-              <Row
-                  className="blu-b justify-content-center pt-5"
-                  style={{ height: "100%" }}
-                >
-                  <h4 className="center-text justify-content-center">A SIMPLE STUDENT MANAGEMENT SYSTEM</h4>
-                  <h6 className="center-text">That actually works</h6>
+                <Row className="blu-b blu-bg pt-5" style={{ height: "100%" }}>
+                  <h3 className="center-text text-dark header-font">
+                    A&nbsp; SIMPLE&nbsp; STUDENT&nbsp; MANAGEMENT&nbsp; SYSTEM
+                  </h3>
+                  <h6 className="center-text text-dark header-fon">
+                    ...that actually works
+                  </h6>
                   {/*<img
-                    src="./media/Screenshot.png"
+                    src="Screenshot.png"
                     alt="screenshot"
                     style={{
                       width: "88%",
@@ -50,14 +49,18 @@ const App = () => {
                   />*/}
                 </Row>
 
-                <Row className="mt-5" style={{ width: "88%" }}>
-                  <h4 className="main">{t("hello_and_welcome")}</h4>
+                <Row className="mt-4" style={{ width: "88%" }}>
+                  <h4 className="main headers text-light">
+                    {t("hello_and_welcome")}
+                  </h4>
                   <p>{t("welcome_msg")}</p>
                 </Row>
 
-                <div className="main-text-color custom-view mt-5">
-                  <h5 className="text-light center-text">
-                    <strong className="headers">{t("intro_h")}</strong>
+                <div className="main-text-color custom-view mt-4">
+                  <h5 className="center-text">
+                    <strong className="headers text-light">
+                      {t("intro_h")}
+                    </strong>
                   </h5>
 
                   <p>
@@ -86,22 +89,27 @@ const App = () => {
                 </div>
                 <br />
 
-                <Row className="main-text-color custom-view mt-5">
+                <Row className="main-text-color custom-view mt-4">
                   <h5 className="text-light center-text">
                     <strong className="headers">
                       {t("authentication_and_permissions")}
                     </strong>
                   </h5>
 
-                  <div className="col-sm-4 rounded" style={{ border: "1px solid grey" }}
+                  <div
+                    className="col-sm-4 rounded"
+                    style={{ border: "1px solid grey" }}
                   >
                     <p>
                       <strong id="navSwitch">{t("admin_users")}</strong> <br />
-                      <br /><br />
+                      <br />
+                      <br />
                       {t("admin_username")}
-                      <br /><br />
+                      <br />
+                      <br />
                       {t("admin_pw")}
-                      <br /><br />
+                      <br />
+                      <br />
                       {t("admin_perms")}
                     </p>
                   </div>
@@ -112,11 +120,14 @@ const App = () => {
                   >
                     <p>
                       <strong id="navSwitch">{t("staff_users")}</strong>
-                      <br /><br />
+                      <br />
+                      <br />
                       {t("staff_username")}
-                      <br /><br />
+                      <br />
+                      <br />
                       {t("staff_pw")}
-                      <br /><br />
+                      <br />
+                      <br />
                       {t("permissions")}
                     </p>
                   </div>
@@ -135,22 +146,27 @@ const App = () => {
                 </Row>
                 <br />
 
-                <div
-                  style={{ textAlign: "lef" }}
-                  className=" main-text-color custom-view mt-5"
-                >
+                <div className=" main-text-color custom-view mt-5">
                   <h5 className="text-light main">
                     <strong className="headers">{t("tech_used")}</strong>
                   </h5>
                   <p>
-                    <a id="navSwitch" href="https://reactjs.org/">
+                    <a
+                      id="navSwitch"
+                      href="https://reactjs.org/"
+                      target="blank_"
+                    >
                       React JS
                     </a>{" "}
                     {t("ui")}
                   </p>
 
                   <p>
-                    <a id="navSwitch" href="https://www.djangoproject.com/">
+                    <a
+                      id="navSwitch"
+                      href="https://www.djangoproject.com/"
+                      target="blank_"
+                    >
                       Djnago
                     </a>{" "}
                     {t("backend")}
@@ -160,6 +176,7 @@ const App = () => {
                     <a
                       id="navSwitch"
                       href="https://www.django-rest-framework.org/"
+                      target="blank_"
                     >
                       Django REST Framework
                     </a>{" "}
@@ -170,6 +187,7 @@ const App = () => {
                     <a
                       id="navSwitch"
                       href="https://james1345.github.io/django-rest-knox/"
+                      target="blank_"
                     >
                       Django-Rest-Knox
                     </a>{" "}
@@ -177,18 +195,30 @@ const App = () => {
                   </p>
 
                   <p>
-                    <a id="navSwitch" href="https://www.axios.com/">
+                    <a
+                      id="navSwitch"
+                      href="https://www.axios.com/"
+                      target="blank_"
+                    >
                       Axios
                     </a>{" "}
                     {t("axios")}
                   </p>
 
                   <p>
-                    <a id="navSwitch" href="https://getbootstrap.com/">
+                    <a
+                      id="navSwitch"
+                      href="https://getbootstrap.com/"
+                      target="blank_"
+                    >
                       Bootstrap
                     </a>{" "}
                     {t("and")}{" "}
-                    <a id="navSwitch" href="https://react-bootstrap.github.io/">
+                    <a
+                      id="navSwitch"
+                      href="https://react-bootstrap.github.io/"
+                      target="blank_"
+                    >
                       React-bootstrap
                     </a>{" "}
                     {t("responsive")}
@@ -198,6 +228,7 @@ const App = () => {
                     <a
                       id="navSwitch"
                       href="https://www.w3.org/Style/CSS/Overview.en.html"
+                      target="blank_"
                     >
                       CSS
                     </a>{" "}
@@ -208,6 +239,7 @@ const App = () => {
                     <a
                       id="navSwitch"
                       href="https://reactjs.org/docs/introducing-jsx.html"
+                      target="blank_"
                     >
                       JSX
                     </a>{" "}
@@ -215,7 +247,11 @@ const App = () => {
                   </p>
 
                   <p>
-                    <a id="navSwitch" href="https://react.i18next.com/">
+                    <a
+                      id="navSwitch"
+                      href="https://react.i18next.com/"
+                      target="blank_"
+                    >
                       i18next
                     </a>{" "}
                     {t("i18next")}
@@ -230,8 +266,10 @@ const App = () => {
               <br />
 
               <footer className="center-text">
-              <div>
-                  <><small>{t("page_disappear")}</small> </>
+                <div>
+                  <>
+                    <small>{t("page_disappear")}</small>{" "}
+                  </>
                 </div>
                 <hr />
                 <small>Copy right 2022 Virtua</small>

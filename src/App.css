@@ -1,5 +1,4 @@
 .App {
-  font: Roboto, sans-serif;
   box-sizing: border-box;
 }
 
@@ -110,7 +109,7 @@ th {
 @media screen and (max-width: 375px) {
   .App,
   .main {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 300
   }
 }
@@ -158,21 +157,21 @@ th {
 
 @media screen and (max-width: 375px) {
   .headers {
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 600;
   }
 }
 
 @media screen and (min-width: 376px) {
   .headers {
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
   }
 }
 @media screen and (min-width: 768px) {
   .headers {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 800;
   }
 }
 
