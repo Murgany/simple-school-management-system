@@ -27,10 +27,10 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 TEST_RUNNER = 'django_heroku.HerokuDiscoverRunner'
 
 
-ALLOWED_HOSTS = ['1.2.7.0.0.1','simple-school-system.herokuapp.com']
+ALLOWED_HOSTS = ['simple-school-system.herokuapp.com']
 
 import mimetypes
-mimetypes.add_type("text/css", ".css", True)
+#mimetypes.add_type("text/css", ".css", True)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -194,11 +194,11 @@ LANGUAGES = [
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'build/static')
-MEDIA_URL = '/build/'
+MEDIA_URL = '/staticfiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 STATICFILES_DIRS = [ 
-    os.path.join(BASE_DIR, 'build'),
+    os.path.join(BASE_DIR, 'build/static'),
 ]
 #STATIC_ROOT = os.path.join(BASE_DIR, 'media')
 
