@@ -11,26 +11,26 @@ import dj_database_url
 import django_heroku
 
 load_dotenv()
-#BASE_DIR = Path(__file__).resolve().root.root
+# BASE_DIR = Path(__file__).resolve().root.root
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
-#DEBUG = 'False'
+# DEBUG = 'False'
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 TEST_RUNNER = 'django_heroku.HerokuDiscoverRunner'
 
-
 ALLOWED_HOSTS = ['simple-school-system.herokuapp.com']
 
 import mimetypes
-#mimetypes.add_type("text/css", ".css", True)
+
+# mimetypes.add_type("text/css", ".css", True)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,22 +46,23 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'knox',
     "whitenoise"
-    #'modeltranslation'
+    # 'modeltranslation'
 ]
 
 REST_SESSION_LOGIN = True
 
 REST_FRAMEWORK = {
-     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication' ,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        #'rest_framework.authentication.AllowAny',
         'knox.auth.TokenAuthentication',
-     ),
+    ),
 
     'DATETIME_FORMAT': "%m/%d/%Y %H:%M:%S",
 }
 
 CORS_ORIGIN_WHITELIST = (
-    #"http://localhost:3000",    
+    # "http://localhost:3000",
     "https://simple-school-system.herokuapp.com"
 
 )
@@ -69,21 +70,21 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://simple-school-system.herokuapp.com"
- ]
+]
 
 ACCESS_CONTROL_ALLOW_ORIGIN = [
-    #"http://localhost:3000",
+    # "http://localhost:3000",
     "https://simple-school-system.herokuapp.com"
-    ]
+]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.locale.LocaleMiddleware', #for internalization
+    # 'django.middleware.locale.LocaleMiddleware', #for internalization
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware', 
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -134,11 +135,10 @@ DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 """
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
@@ -149,7 +149,6 @@ DATABASES['default'].update(db_from_env)
 dotenv_file = os.path.join(BASE_DIR, '.env')
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -169,7 +168,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -186,9 +184,8 @@ USE_L10N = True
 
 USE_TZ = True
 
- 
 LANGUAGES = [
-    ('en','English'),
+    ('en', 'English'),
     ('ar', 'Arabic'),
 ]
 
@@ -197,13 +194,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'build/static')
 MEDIA_URL = '/staticfiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
-STATICFILES_DIRS = [ 
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static'),
 ]
-#STATIC_ROOT = os.path.join(BASE_DIR, 'media')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
 
@@ -212,7 +209,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_COOKIE_SECURE = True
 
 SESSION_COOKIE_SECURE = True
-#options = DATABASES['default'].get('OPTIONS', {})
-#options.pop('sslmode', None)
+# options = DATABASES['default'].get('OPTIONS', {})
+# options.pop('sslmode', None)
 
 
